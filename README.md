@@ -1,36 +1,57 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Lorem Kado — Template Web Kejutan Ulang Tahun
 
-## Getting Started
+Template website kejutan ulang tahun (Next.js + Tailwind). Seluruh teks memakai
+placeholder **lorem ipsum** — tinggal diganti dengan isi pribadi.
 
-First, run the development server:
+## Tampilan
+
+| Halaman                          | Screenshot                          |
+| -------------------------------- | ----------------------------------- |
+| Layar pembuka (kado tertutup)    | `docs/01-welcome.png`               |
+| Tab Surat (pesan)                | `docs/02-surat.png`                 |
+| Tab Memori (galeri polaroid)     | `docs/03-galeri.png` (foto disensor)| 
+| Tab Harapan (pop balon)          | `docs/04-balon.png`                 |
+| Tab Lilin (kue virtual)          | `docs/05-kue.png`                   |
+
+## Menjalankan
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run dev     # buka http://localhost:3000
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Panduan Personalisasi (untuk pengguna)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Ganti teks placeholder di file-file berikut menggunakan editor biasa
+(VS Code / Notepad). Cari kata `Lorem` lalu ketik penggantinya.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Yang mau diganti                          | File                            | Baris kira-kira |
+| ----------------------------------------- | ------------------------------- | --------------- |
+| Judul tab browser & deskripsi (SEO)       | `src/app/layout.tsx`            | `metadata`      |
+| Teks layar pembuka, tombol, kado          | `src/app/page.tsx`              | cari "Lorem"    |
+| Waktu kado dibuka otomatis (countdown)    | `src/app/page.tsx`              | `new Date("...")` |
+| Kapten/judul lagu (lirik)                 | `src/components/AudioSynth.ts`  | `birthdaySong`  |
+| Judul & deskripsi galeri + daftar foto    | `src/components/PolaroidGallery.tsx` | `memories` |
+| Doa di balon harapan                      | `src/components/WishBalloons.tsx`    | `initialBalloons` |
+| Teks kue & permohonan                     | `src/components/VirtualCake.tsx`     | cari "Lorem" |
 
-## Learn More
+### Mengganti foto/video
 
-To learn more about Next.js, take a look at the following resources:
+Simpan file ke `public/assets/` lalu samakan nama di
+`PolaroidGallery.tsx`. Folder `public/assets/` **tidak ikut** ter-commit ke
+git (proteksi privasi) — deploy dengan repositori publik akan memakai aset
+yang diunggah secara terpisah.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Struktur
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```
+src/app/            halaman & layout
+src/components/     kado, galeri, balon, kue, audio, confetti
+public/assets/      foto/video pribadi (ignored)
+docs/               screenshot tiap halaman
+```
 
-## Deploy on Vercel
+## Deploy
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Deploy seperti Next.js biasa (mis. `npx vercel`). Pastikan aset pribadi
+diunggah/di-setel sebelum deploy publik.

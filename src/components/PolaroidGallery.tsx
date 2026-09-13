@@ -14,29 +14,29 @@ const memories: PolaroidItem[] = [
   {
     src: "/assets/senyum-manis.jpeg",
     type: "image",
-    title: "Senyuman Tercantikmu ✨",
-    description: "Satu senyuman manis dari kamu selalu bisa cerahin hari-hari burukku.",
+    title: "Lorem Ipsum 1 ✨",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
     rotation: "-rotate-2",
   },
   {
     src: "/assets/momen-berdua-1.mp4",
     type: "video",
-    title: "Momen Berdua Kita 💖",
-    description: "Setiap tawa kecil dan cerita seru pas bareng kamu itu memori favoritku.",
+    title: "Lorem Ipsum 2 💖",
+    description: "Lorem ipsum dolor sit amet consectetur adipiscing elit sed.",
     rotation: "rotate-3",
   },
   {
     src: "/assets/momen-berdua-2.jpeg",
     type: "image",
-    title: "Tertawa Bareng 🧁",
-    description: "Semoga kita bisa terus lewatin hari-hari ke depan sambil ketawa lepas kayak gini yaa.",
+    title: "Lorem Ipsum 3 🧁",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do.",
     rotation: "-rotate-1",
   },
   {
     src: "/assets/candid-cantik.jpeg",
     type: "image",
-    title: "Candid Cantik Wulan 🌸",
-    description: "Foto candid kamu yang paling aku suka, cantiknya natural dan selalu bikin jatuh hati.",
+    title: "Lorem Ipsum 4 🌸",
+    description: "Lorem ipsum dolor sit amet consectetur adipiscing elit tempor.",
     rotation: "rotate-2",
   },
 ];
@@ -55,7 +55,7 @@ export default function PolaroidGallery() {
   return (
     <div className="w-full max-w-sm mx-auto my-6 font-sans">
       <h3 className="font-script text-4.5xl text-[#b76e79] text-center mb-4 leading-none select-none">
-        Galeri Memori Indah ✨
+        Lorem Ipsum Dolor ✨
       </h3>
 
       <div className="relative h-[340px] flex items-center justify-center">

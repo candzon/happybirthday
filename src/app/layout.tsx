@@ -14,9 +14,10 @@ const greatVibes = Great_Vibes({
   weight: ["400"],
 });
 
+// Metadata situs: ubah title & description di sini sesuai keinginan pengguna.
 export const metadata: Metadata = {
-  title: "Happy Birthday Wulan Gartifani! 💖",
-  description: "Selamat Ulang Tahun Untuk Tuan Putri Kesayangan 👑",
+  title: "Lorem Ipsum Dolor Sit Amet",
+  description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

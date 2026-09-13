@@ -41,12 +41,12 @@ export default function VirtualCake({ name }: VirtualCakeProps) {
   return (
     <div className="w-full bg-white/40 rounded-2xl p-6 border border-[#e0a96d]/20 text-center my-6 select-none animate-pop-in">
       <h3 className="font-script text-4.5xl text-[#b76e79] mb-1 select-none leading-none">
-        Tiup Lilin Ulang Tahun 🎂
+        Lorem Ipsum 🎂
       </h3>
       <p className="text-xs text-neutral-500 mb-16 font-sans">
         {!isBlown
-          ? `Ayo tiup lilinnya, ${name || "Wulan"}! (Klik apinya)`
-          : "Yeyy! Selamat membuat permohonan! ✨"}
+          ? `Lorem ipsum dolor, ${name || "Wulan"}! (Klik apinya)`
+          : "Lorem ipsum dolor sit amet! ✨"}
       </p>
 
       {/* Cake Container */}
@@ -70,7 +70,7 @@ export default function VirtualCake({ name }: VirtualCakeProps) {
                 animation: "flicker 0.6s infinite alternate ease-in-out",
                 transformOrigin: "bottom center",
               }}
-              title="Klik untuk meniup lilin!"
+              title="Lorem ipsum!"
             />
           ) : (
             /* Smoke Effect */
@@ -127,24 +127,24 @@ export default function VirtualCake({ name }: VirtualCakeProps) {
         {showWish ? (
           <div className="bg-white/90 px-5 py-4 rounded-2xl border border-[#e0a96d]/30 shadow-md animate-pop-in text-sm text-neutral-700 leading-relaxed font-sans max-w-sm">
             <span className="block text-[11px] text-[#d4af37] font-bold tracking-wider mb-1.5 uppercase">
-              Permohonan Diusulkan! 💫
+              Lorem Ipsum Dolor! 💫
             </span>
             <p className="mb-3 font-semibold text-[#b76e79] text-base">
-              Selamat Ulang Tahun, {name || "Wulan"}! 🎂🥳
+              Lorem Ipsum Dolor, {name || "Wulan"}! 🎂🥳
             </p>
             <p className="text-xs text-neutral-500 italic">
-              &ldquo;Semoga segala doa yang kamu bisikkan dalam hati barusan dikabulkan oleh semesta dan membawamu ke hari-hari yang penuh tawa bahagia. Amin! 💖&rdquo;
+              &ldquo;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt. 💖&rdquo;
             </p>
             <button
               onClick={handleReset}
               className="mt-4 text-[10px] text-[#b76e79] hover:text-[#a05662] font-bold border-b border-dashed border-[#b76e79]/45 cursor-pointer"
             >
-              Nyalakan Lilin Lagi
+              Lorem Ipsum
             </button>
           </div>
         ) : (
           <p className="text-xs text-neutral-400 italic font-sans">
-            Klik apinya untuk meniup lilin dan membuat permohonan...
+            Lorem ipsum dolor sit amet consectetur...
           </p>
         )}
       </div>

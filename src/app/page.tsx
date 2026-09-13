@@ -75,7 +75,8 @@ export default function Home() {
 
   const handleOpenSurprise = async () => {
     if (!nameInput.trim()) {
-      alert("Tulis nama kamu dulu dong, Tuan Putri! 🌸");
+      // Validasi: input nama tidak boleh kosong sebelum kado dibuka
+      alert("Lorem ipsum dolor sit amet!");
       return;
     }
     const finalName = nameInput.trim();
@@ -186,13 +187,13 @@ export default function Home() {
         /* ================= COUNTDOWN CARD ================= */
         <div className="w-full max-w-md bg-white/75 backdrop-blur-xl border-gold-soft rounded-[32px] shadow-[0_20px_50px_rgba(183,110,121,0.12)] p-8 text-center relative z-10 transition-all">
           <span className="inline-block bg-[#b76e79] text-white text-[10px] font-bold px-4 py-1.5 rounded-full tracking-widest uppercase mb-5 font-sans">
-            ⏳ Segera Hadir ⏳
+            ⏳ Lorem Ipsum ⏳
           </span>
           <h1 className="font-script text-4.5xl text-[#b76e79] leading-tight mb-2 select-none">
-            Sabar yaa Tuan Putri cantiknya aku... 🌸
+            Lorem ipsum dolor sit amet consectetur 🌸
           </h1>
           <p className="text-xs font-sans text-neutral-500 mb-8 max-w-xs mx-auto leading-relaxed">
-            Kejutan ulang tahun buat Wulan Gartifani baru kebuka otomatis pas jam 12 malem teng (00:00 WIB) nanti yaa. Jadi, jangan tidur cepet-cepet yaa sayang! ⏰✨
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ⏰✨
           </p>
           
           {/* Countdown Clock */}
@@ -218,7 +219,7 @@ export default function Home() {
           </div>
 
           <p className="text-[11px] text-[#b76e79]/70 font-semibold font-sans animate-pulse">
-            Ditunggu yaa, ga sabar pengen kamu liat kado kecil yang udah aku bikin khusus buat kamu! 🥰
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod 🥰
           </p>
         </div>
       ) : (
@@ -250,26 +251,26 @@ export default function Home() {
             /* ================= WELCOME SCREEN (GIFT CLOSED) ================= */
             <div className="py-4 flex flex-col items-center animate-pop-in relative z-10">
               <span className="inline-block bg-[#b76e79] text-white text-[10px] font-bold px-4 py-1.5 rounded-full tracking-widest shadow-xs uppercase mb-5 select-none font-sans">
-                🌸 A Special Surpise 🌸
+                🌸 Lorem Ipsum 🌸
               </span>
               
               <h1 className="font-script text-5.5xl text-[#b76e79] leading-none mb-1 select-none filter drop-shadow-xs">
-                Selamat Ulang Tahun
+                Lorem Ipsum Dolor
               </h1>
               <p className="text-xs font-semibold font-sans text-neutral-500 mb-8 tracking-wider">
-                UNTUK TUAN PUTRI KESAYANGAN 👑
+                LOREM IPSUM DOLOR SIT AMET 👑
               </p>
 
               {/* Personalized Name Input */}
               <div className="w-full max-w-[240px] mb-8 select-none font-sans" suppressHydrationWarning>
                 <label className="block text-[10px] text-[#b76e79] font-bold uppercase mb-1.5 tracking-wider">
-                  Siapa Nama Tuan Putri? 🌸
+                  Lorem ipsum dolor sit? 🌸
                 </label>
                 <input
                   type="text"
                   value={nameInput}
                   onChange={(e) => setNameInput(e.target.value)}
-                  placeholder="Tulis namamu disini..."
+                  placeholder="Lorem ipsum..."
                   maxLength={20}
                   className="w-full input-gold-soft rounded-2xl px-4 py-2.5 text-center text-sm font-semibold placeholder-[#b76e79]/35 text-[#b76e79] shadow-xs"
                   suppressHydrationWarning
@@ -290,7 +291,7 @@ export default function Home() {
               </div>
 
               <p className="text-[11px] text-neutral-400 font-semibold font-sans mt-8 animate-bounce">
-                Buka kado untuk kejutan manis dari hati! ✨
+                Lorem ipsum dolor sit amet ✨
               </p>
             </div>
           ) : (
@@ -301,10 +302,10 @@ export default function Home() {
               </span>
               
               <h1 className="font-script text-5xl text-[#b76e79] leading-none mb-1 select-none">
-                Happy Birthday, {name}! 🎉
+                Lorem Ipsum, {name}! 🎉
               </h1>
               <p className="text-[10px] text-neutral-400 font-semibold font-sans tracking-wide mb-6">
-                PESAN INDAH DI HARI LAHIRMU 👑
+                LOREM IPSUM DOLOR 👑
               </p>
 
               {/* Tabs Selector */}
@@ -358,21 +359,21 @@ export default function Home() {
                   /* TAB 1: CUTE LETTER */
                   <div className="bg-[#fdfbf7]/60 border border-[#e0a96d]/20 rounded-2xl p-5 text-left w-full shadow-inner animate-pop-in">
                     <h3 className="font-script text-3.5xl text-[#b76e79] mb-3 text-center leading-none">
-                      Untuk Wulan Kesayanganku 💖
+                      Lorem Ipsum Dolor 💖
                     </h3>
                     
                     <div className="text-[13.5px] text-neutral-600 space-y-3 font-sans leading-relaxed text-justify px-1">
                       <p>
-                        Selamat ulang tahun yaa sayangku, <strong>{name}</strong>. Hari ini hari spesial kamu, dan aku bersyukur banget bisa nemenin kamu di usia yang baru ini.
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.
                       </p>
                       <p>
-                        Semoga apa yang kamu semogakan cepet terwujud yaa. Mulai dari rintisan bisnis bunga <em>twfloristt</em> kamu dari rumah biar makin laris manis, rezeki kita yang makin lancar, segala urusan kamu dipermudah, dan yang paling penting... semoga kita segera halal dan menikah secepatnya. Amin! 💍💐
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 💍💐
                       </p>
                       <p>
-                        Oh iya, di umur yang baru ini, semoga pawang ngambeknya makin pinter yaa, terutama pas cuaca lagi panas-panasnya wkwk. Aku paham banget kok kalau cuaca gerah dikit bawaannya emosi terus ngedumel mulu. Tapi gak apa-apa, se-ngambek atau se-marah apapun kamu pas lagi gerah, kamu tetep jadi Tuan Putri paling gemes dan kesayangan aku selamanya.
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.
                       </p>
                       <p>
-                        Makasih ya udah selalu jadi sosok penyayang yang bikin hari-hariku penuh warna. Tetap jadi Wulan yang ceria yaa (asal ac jangan mati aja pas mati lampu wkwk), <em>I love you to the moon and back!</em> 💕
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor. Ut enim ad minim veniam! 💕
                       </p>
                     </div>
 
@@ -381,7 +382,7 @@ export default function Home() {
                         onClick={handleHujanCinta}
                         className="gift-btn w-full bg-gradient-to-r from-[#b76e79] to-[#e0a96d] border-none text-white font-bold py-2.5 px-6 rounded-full cursor-pointer shadow-md hover:scale-103 active:scale-97 transition-all text-xs font-sans tracking-wide"
                       >
-                        Hujan Cinta Lagi! 💖
+                        Lorem Ipsum! 💖
                       </button>
                     </div>
                   </div>

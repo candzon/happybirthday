@@ -19,40 +19,40 @@ const initialBalloons: Balloon[] = [
     color: "bg-rose-400",
     borderColor: "border-rose-300",
     shadowColor: "shadow-rose-300/40",
-    wish: "Semoga kita cepet nikah dan halal yaa, udah ga sabar pengen bangun pagi langsung liat muka manis kamu tiap hari. 💍💖",
-    label: "Halal & Nikah 💍",
+    wish: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod 💍💖",
+    label: "Lorem 1 💍",
   },
   {
     id: 2,
     color: "bg-amber-400",
     borderColor: "border-amber-300",
     shadowColor: "shadow-amber-300/40",
-    wish: "Semoga impian kamu buat rintis bisnis bunga 'twfloristt' dari rumah cepet terwujud dan rame terus orderannya! 🌸💐",
-    label: "twfloristt 🌸",
+    wish: "Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor 🌸💐",
+    label: "Lorem 2 🌸",
   },
   {
     id: 3,
     color: "bg-emerald-400",
     borderColor: "border-emerald-300",
     shadowColor: "shadow-emerald-300/40",
-    wish: "Semoga rezeki kamu selalu ngalir lancar, berkah, dan dicukupkan terus buat semua kebutuhan kamu nantinya. 💰✨",
-    label: "Rezeki Lancar 💰",
+    wish: "Lorem ipsum dolor sit amet, consectetur adipiscing elit 💰✨",
+    label: "Lorem 3 💰",
   },
   {
     id: 4,
     color: "bg-sky-400",
     borderColor: "border-sky-300",
     shadowColor: "shadow-sky-300/40",
-    wish: "Semoga segala urusan kamu selalu dimudahkan jalannya, dilancarkan, dan dijauhkan dari hal-hal yang bikin kamu pusing. 🍀",
-    label: "Dimudahkan ✨",
+    wish: "Lorem ipsum dolor sit amet consectetur adipiscing elit sed 🍀",
+    label: "Lorem 4 ✨",
   },
   {
     id: 5,
     color: "bg-purple-400",
     borderColor: "border-purple-300",
     shadowColor: "shadow-purple-300/40",
-    wish: "Yang paling penting, semoga kamu selalu bahagia terus ya sayang. Senyuman kamu itu hal terindah buat aku. 😊💕",
-    label: "Bahagia Selalu 😊",
+    wish: "Lorem ipsum dolor sit amet, consectetur adipiscing elit 😊💕",
+    label: "Lorem 5 😊",
   },
 ];
 
@@ -115,10 +115,10 @@ export default function WishBalloons() {
   return (
     <div className="w-full bg-rose-50/50 rounded-2xl p-5 border border-rose-100/60 text-center my-6">
       <h3 className="font-sacramento text-3xl text-rose-500 font-bold mb-1">
-        Pop Balon Harapan 🎈
+        Lorem Ipsum 🎈
       </h3>
       <p className="text-xs text-neutral-500 mb-6">
-        Pecahkan balon-balon lucu ini untuk membuka doa manisnya!
+        Lorem ipsum dolor sit amet consectetur!
       </p>
 
       {/* Balloon board */}
@@ -180,20 +180,20 @@ export default function WishBalloons() {
         {activeWish ? (
           <div className="bg-white px-4 py-3 rounded-xl border border-rose-100/60 shadow-sm animate-pop-in text-sm text-neutral-700 leading-relaxed font-sans max-w-sm">
             <span className="block text-[10px] text-rose-400 font-bold tracking-wider mb-0.5 uppercase">
-              Doa Harapan Terbuka ✨
+              Lorem Ipsum Dolor ✨
             </span>
             {activeWish}
           </div>
         ) : (
           <p className="text-xs text-neutral-400 italic">
-            Klik balonnya dan dengarkan doanya...
+            Lorem ipsum dolor...
           </p>
         )}
       </div>
 
       {allPopped && (
         <div className="mt-4 text-xs text-emerald-600 font-bold font-sans animate-bounce">
-          🎉 Wah! Semua balon harapan sudah kamu pecahkan! Kamu hebat! 💖
+          🎉 Lorem ipsum dolor sit amet, consectetur 💖
         </div>
       )}
     </div>
