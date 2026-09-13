@@ -1,20 +1,11 @@
 "use client";
 
-import React, { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useSyncExternalStore } from "react";
 import { launchConfetti, fireMoreHearts } from "@/components/Confetti";
 import { BirthdayAudioPlayer, birthdaySong } from "@/components/AudioSynth";
 import PolaroidGallery from "@/components/PolaroidGallery";
 import WishBalloons from "@/components/WishBalloons";
 import VirtualCake from "@/components/VirtualCake";
-
-interface FloatDecoration {
-  id: number;
-  char: string;
-  left: number;
-  delay: number;
-  duration: number;
-  size: number;
-}
 
 export default function Home() {
   const [isOpen, setIsOpen] = useState(false);
@@ -25,7 +16,11 @@ export default function Home() {
   const [name, setName] = useState("");
 
   // Countdown & Hydration State
-  const [isMounted, setIsMounted] = useState(false);
+  const isMounted = useSyncExternalStore(
+    (cb) => () => cb(),
+    () => true,
+    () => false
+  );
   const [timeLeft, setTimeLeft] = useState<number>(0);
 
   // Audio state
@@ -33,14 +28,23 @@ export default function Home() {
   const [currentLyricIndex, setCurrentLyricIndex] = useState<number | null>(null);
   
   // Floating elements state
-  const [decorations, setDecorations] = useState<FloatDecoration[]>([]);
+  type Decoration = { id: number; char: string; left: number; delay: number; duration: number; size: number };
+  const [decorations] = useState<Decoration[]>(() => {
+    const types = ["✨", "🌸", "💌", "BALLOON_PINK", "BALLOON_LAVENDER"];
+    return Array.from({ length: 18 }).map((_, i) => ({
+      id: i,
+      char: types[i % types.length],
+      left: Math.random() * 90 + 5,
+      delay: Math.random() * 7,
+      duration: Math.random() * 8 + 8,
+      size: Math.random() * 12 + 16,
+    }));
+  });
   
   const playerRef = useRef<BirthdayAudioPlayer | null>(null);
 
   // Initialize floating decorations and countdown timer
   useEffect(() => {
-    setIsMounted(true);
-
     const target = new Date("2026-08-26T00:00:00+07:00").getTime();
     const updateTimer = () => {
       const now = new Date().getTime();
@@ -49,19 +53,6 @@ export default function Home() {
 
     updateTimer();
     const interval = setInterval(updateTimer, 1000);
-
-    const items = Array.from({ length: 18 }).map((_, i) => {
-      const types = ["✨", "🌸", "💌", "BALLOON_PINK", "BALLOON_LAVENDER"];
-      return {
-        id: i,
-        char: types[i % types.length],
-        left: Math.random() * 90 + 5, // 5% to 95%
-        delay: Math.random() * 7, // 0 to 7s
-        duration: Math.random() * 8 + 8, // 8 to 16s
-        size: Math.random() * 12 + 16, // size
-      };
-    });
-    setDecorations(items);
 
     // Initialize audio player
     const player = new BirthdayAudioPlayer();
@@ -128,13 +119,10 @@ export default function Home() {
     <main className="flex-1 w-full min-h-screen flex items-center justify-center p-4 relative overflow-hidden select-none">
       
       {/* Floating Background Elements */}
-      {decorations.map((dec) => {
-        const isPinkBalloon = dec.char === "BALLOON_PINK";
-        const isLavenderBalloon = dec.char === "BALLOON_LAVENDER";
-
-        return (
+      {decorations.map((dec) => (
           <span
             key={dec.id}
+            suppressHydrationWarning
             className="absolute bottom-[-140px] pointer-events-none opacity-60 z-0 select-none animate-float-up"
             style={{
               left: `${dec.left}%`,
@@ -142,33 +130,20 @@ export default function Home() {
               animationDuration: `${dec.duration}s`,
             }}
           >
-            {isPinkBalloon ? (
-              /* Custom Transparent Pink Balloon */
-              <div className="relative flex flex-col items-center">
-                <div className="w-10 h-13 rounded-t-full rounded-b-[40px] bg-pink-400/20 border border-pink-300/40 backdrop-blur-[1px] shadow-[inset_-3px_-3px_8px_rgba(244,63,94,0.15)] flex items-center justify-center relative">
-                  <div className="absolute top-1.5 left-2 w-2 h-3.5 bg-white/40 rounded-full rotate-[15deg]" />
-                  <span className="text-[10px] opacity-70">💖</span>
-                  <div className="w-1.5 h-1.5 bg-pink-300/50 transform rotate-45 absolute bottom-[-1px]" />
-                </div>
-                <div className="w-[1px] h-10 bg-gradient-to-b from-[#e0a96d]/45 to-transparent" />
+            {dec.char === "BALLOON_PINK" || dec.char === "BALLOON_LAVENDER" ? (
+            <div className={`relative flex flex-col items-center ${dec.char === "BALLOON_PINK" ? "text-pink-300" : "text-purple-300"}`}>
+              <div className={`w-10 h-13 rounded-t-full rounded-b-[40px] backdrop-blur-[1px] border flex items-center justify-center relative ${dec.char === "BALLOON_PINK" ? "bg-pink-400/20 border-pink-300/40 shadow-[inset_-3px_-3px_8px_rgba(244,63,94,0.15)]" : "bg-purple-400/20 border-purple-300/40 shadow-[inset_-3px_-3px_8px_rgba(168,85,247,0.15)]"}`}>
+                <div className="absolute top-1.5 left-2 w-2 h-3.5 bg-white/40 rounded-full rotate-[15deg]" />
+                <span className="text-[10px] opacity-70">{dec.char === "BALLOON_PINK" ? "💖" : "✨"}</span>
+                <div className="w-1.5 h-1.5 bg-current opacity-50 transform rotate-45 absolute bottom-[-1px]" />
               </div>
-            ) : isLavenderBalloon ? (
-              /* Custom Transparent Lavender Balloon */
-              <div className="relative flex flex-col items-center">
-                <div className="w-10 h-13 rounded-t-full rounded-b-[40px] bg-purple-400/20 border border-purple-300/40 backdrop-blur-[1px] shadow-[inset_-3px_-3px_8px_rgba(168,85,247,0.15)] flex items-center justify-center relative">
-                  <div className="absolute top-1.5 left-2 w-2 h-3.5 bg-white/40 rounded-full rotate-[15deg]" />
-                  <span className="text-[10px] opacity-70">✨</span>
-                  <div className="w-1.5 h-1.5 bg-purple-300/50 transform rotate-45 absolute bottom-[-1px]" />
-                </div>
-                <div className="w-[1px] h-10 bg-gradient-to-b from-[#e0a96d]/45 to-transparent" />
-              </div>
-            ) : (
-              /* Sparkles, Flowers, Letters */
-              <span style={{ fontSize: `${dec.size}px` }}>{dec.char}</span>
-            )}
+              <div className="w-[1px] h-10 bg-gradient-to-b from-[#e0a96d]/45 to-transparent" />
+            </div>
+          ) : (
+            <span style={{ fontSize: `${dec.size}px` }}>{dec.char}</span>
+          )}
           </span>
-        );
-      })}
+      ))}
 
       {/* Floating Music Chime Controller */}
       {isOpen && (

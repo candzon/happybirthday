@@ -58,8 +58,6 @@ export class BirthdayAudioPlayer {
   private onNoteCallback: ((index: number) => void) | null = null;
   private onFinishedCallback: (() => void) | null = null;
 
-  constructor() {}
-
   public setCallbacks(
     onNote: (index: number) => void,
     onFinished: () => void
@@ -73,7 +71,7 @@ export class BirthdayAudioPlayer {
     this.isPlayingActive = true;
 
     // Initialize AudioContext
-    const AudioCtxClass = window.AudioContext || (window as any).webkitAudioContext;
+    const AudioCtxClass = getAudioContextClass();
     if (!AudioCtxClass) {
       console.warn("Web Audio API not supported in this browser.");
       return;
@@ -190,14 +188,15 @@ export class BirthdayAudioPlayer {
     }
   }
 
-  public isPlaying(): boolean {
-    return this.isPlayingActive;
-  }
+}
+
+export function getAudioContextClass() {
+  return window.AudioContext ?? (window as typeof window & { webkitAudioContext?: typeof AudioContext }).webkitAudioContext;
 }
 
 export function playBlowSound() {
   try {
-    const AudioContextClass = window.AudioContext || (window as any).webkitAudioContext;
+    const AudioContextClass = getAudioContextClass();
     if (!AudioContextClass) return;
 
     const ctx = new AudioContextClass();

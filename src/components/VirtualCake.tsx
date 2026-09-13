@@ -133,7 +133,7 @@ export default function VirtualCake({ name }: VirtualCakeProps) {
               Selamat Ulang Tahun, {name || "Wulan"}! 🎂🥳
             </p>
             <p className="text-xs text-neutral-500 italic">
-              "Semoga segala doa yang kamu bisikkan dalam hati barusan dikabulkan oleh semesta dan membawamu ke hari-hari yang penuh tawa bahagia. Amin! 💖"
+              &ldquo;Semoga segala doa yang kamu bisikkan dalam hati barusan dikabulkan oleh semesta dan membawamu ke hari-hari yang penuh tawa bahagia. Amin! 💖&rdquo;
             </p>
             <button
               onClick={handleReset}

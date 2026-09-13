@@ -1,7 +1,8 @@
 "use client";
 
-import React, { useState } from "react";
+import { useState } from "react";
 import { popBalloonConfetti } from "./Confetti";
+import { getAudioContextClass } from "./AudioSynth";
 
 interface Balloon {
   id: number;
@@ -61,7 +62,7 @@ export default function WishBalloons() {
 
   const playPopSound = () => {
     try {
-      const AudioContextClass = window.AudioContext || (window as any).webkitAudioContext;
+      const AudioContextClass = getAudioContextClass();
       if (!AudioContextClass) return;
 
       const audioCtx = new AudioContextClass();
